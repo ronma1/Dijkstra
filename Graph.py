@@ -2,26 +2,29 @@ import networkx as nx
 
 class Graph:
     
-    # Construct graph from file using networkx
+    # initialize graph instance 
     def __init__ (self, *args):
         self.graph = nx.Graph()
-        # Open the input file and create the graph from the given data
+        # Opens the input file and create a graph from given data
         with open(args[0], 'r') as input:
-            # add range of nodes from 0 to the number of required nodes - 1
             self.nodes = int(input.readline())
             self.edges = int(input.readline())
+            # add range of nodes from 0 to the number of required nodes - 1
             self.graph.add_nodes_from(range(0, self.nodes - 1))
             for line in input.readlines():
                 self.add_edge_from_line(line)
 
-    # Parse single line from file            
+    # Parse single line from a file with the following format:
+    # params[0] = v1 
+    # params[1] = v2
+    # params[3] = weight of the edge between v1 & v2. 
     def add_edge_from_line(self, line):
-        parms =line.split()
-        self.graph.add_edge(int (parms[0]),int(parms[1]),weight=float(parms[2]))
+        params =line.split()
+        self.graph.add_edge(int (params[0]),int(params[1]),weight=float(params[2]))
 
+# main for tests / should delete it. 
 if __name__ == '__main__': 
     g = Graph('g0.txt')
-    print " graph: " + str(g)
     print g.graph.nodes()
     print "\n"
     for edge in g.graph.edges():
