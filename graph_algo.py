@@ -6,13 +6,13 @@ class Graph_algo:
     def __init__(self,graph):
         self.graph=graph
 
-    # calculate the distance between two nodes
+    # Returns the shortest path length from source to target in a weighted graph using networkx function
     # should return float number
     def calc_dist(v1, v2):
-        return self.graph.shortest_path_length(self.graph,v1,v2)
+        return self.graph.dijkstra_path_length(self.graph,v1,v2)
 
     # calculate the path between two nodes
-    # should return a list [v1 ..... v2] represents the path
+    # Using networkx function - should return a list [v1 ..... v2] represents the shortest path
     def calc_path(self,v1, v2):
        return self.graph.shortest_path(self.graph,v1,v2)
 
