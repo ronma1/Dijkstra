@@ -20,9 +20,9 @@ class Graph_algo:
     # calculates the path between two nodes
     # Without pass over the a blacklist of nodes 
     # should return a list [v1 ..... v2] represents the path 
-    def calc_path_with_blacklist(self,v1, v2, *blacklist):
+    def calc_path_with_blacklist(self,v1, v2, blacklist):
         for node in blacklist:
-            self.graph.remove_node(int(node))
+            self.graph.remove_node(node)
         return nx.dijkstra_path_length(self.graph,v1,v2)
         
 
@@ -44,4 +44,4 @@ class Graph_algo:
          g = Graph('g0.txt')
          print calc_dist(g,0,1)
          # print calc_path(g,0,1)
-         print calc_path_with_blacklist(g,0,1,[4])
+         print calc_path_with_blacklist(g,0,1,[4,3])
