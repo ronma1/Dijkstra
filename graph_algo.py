@@ -35,13 +35,20 @@ class Graph_algo:
         return nx.radius(self.graph)
 
     def is_Triangle_inequality(self):
-        pass
+        for i in range(0,nx.number_of_nodes(self.graph),1):
+            for j in range(0,nx.number_of_nodes(self.graph)):
+                print nx.dijkstra_path(self.graph,i,j)
+                print nx.dijkstra_path_length(self.graph,i,j)
+                if nx.dijkstra_path_length(self.graph,i,j)>1:
+                    return False
+        return True
 
     def time(self):
         pass
 
     if __name__ == '__main__': 
          g = Graph('g0.txt')
-         print calc_dist(g,0,1)
+         #print calc_dist(g,0,1)
          # print calc_path(g,0,1)
-         print calc_path_with_blacklist(g,0,1,[4,3])
+         #print calc_path_with_blacklist(g,0,1,[4,3])
+         print is_Triangle_inequality(g) 
