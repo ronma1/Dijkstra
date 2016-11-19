@@ -4,8 +4,9 @@ from Graph import Graph
 class Graph_algo:
 
     # loads Graph.graph instance into Graph_algo self.graph
-    def __init__(self,graph):
-        self.graph=graph
+    def __init__(self,name):
+        g = Graph(name)
+        self.graph=g.graph
 
     # Returns the shortest path length from source to target in a weighted graph using networkx function
     # should return float number
@@ -45,7 +46,6 @@ class Graph_algo:
     def time(self):
         pass
 
-    if __name__ == '__main__': 
-         g = Graph('g0.txt')
-
-         print is_Triangle_inequality(g) 
+if __name__ == '__main__': 
+    g1=Graph_algo('g0.txt')
+    print g1.is_Triangle_inequality() 

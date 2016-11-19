@@ -13,13 +13,17 @@ class TestGraph:
 
 
     def parseTheLine(self, line):
+        g=Graph_algo('g0.txt')    
+        print g.graph.nodes()
         params = line.split()
         self.graph.add_edge(params[0], params[1])
         self.sizeOfBlackList = params[2]
         self.blackList = []
         for i in range(3,len(params)):
             self.blackList.append(int(params[i]))
-        self.weigth = Graph_algo.calc_path_with_blacklist(self, int(params[0]), int(params[1]), self.blackList)
+        print self.blackList 
+        self.weigth = g.calc_path_with_blacklist(int(params[0]),int(params[1]), self.blackList)
+        print nx.dijkstra_path(g.graph,int(params[0]),int(params[1]))
         print self.weigth
 
         
