@@ -1,4 +1,5 @@
 import networkx as nx
+from Graph import Graph
 
 class Graph_algo:
 
@@ -14,13 +15,16 @@ class Graph_algo:
     # calculate the path between two nodes
     # Using networkx function - should return a list [v1 ..... v2] represents the shortest path
     def calc_path(self,v1, v2):
-       return nx.shortest_path(self.graph,v1,v2)
+       return nx.dijkstra_path(self.graph,v1,v2)
 
     # calculates the path between two nodes
     # Without pass over the a blacklist of nodes 
     # should return a list [v1 ..... v2] represents the path 
-    def calc_path_with_blacklist(v1, v2, *blacklist):
-        pass
+    def calc_path_with_blacklist(self,v1, v2, *blacklist):
+        for node in blacklist:
+            self.graph.remove_node(int(node))
+        return nx.dijkstra_path_length(self.graph,v1,v2)
+        
 
     #Return the diameter of the graph G
     def diamiter(self):
@@ -35,3 +39,9 @@ class Graph_algo:
 
     def time(self):
         pass
+
+    if __name__ == '__main__': 
+         g = Graph('g0.txt')
+         print calc_dist(g,0,1)
+         # print calc_path(g,0,1)
+         print calc_path_with_blacklist(g,0,1,[4])

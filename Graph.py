@@ -28,4 +28,5 @@ if __name__ == '__main__':
     print g.graph.nodes()
     print "\n"
     for edge in g.graph.edges():
-        print str(edge[0]) + " " + str(edge[1]) + " " + str(g.graph.get_edge_data(edge[0], edge[1]))
+       print str(edge[0]) + " " + str(edge[1]) + " " + str(g.graph.get_edge_data(edge[0], edge[1]))
+   
