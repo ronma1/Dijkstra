@@ -22,4 +22,16 @@ class Graph_algo:
     def calc_path_with_blacklist(v1, v2, *blacklist):
         pass
 
-    
+    #Return the diameter of the graph G
+    def diamiter(self):
+        return nx.diameter(self.graph)
+        
+    #Return the radius of the graph G
+    def radius(self):
+        return nx.radius(self.graph)
+
+    def is_Triangle_inequality(self):
+        pass
+
+    def time(self):
+        pass
